@@ -18,18 +18,21 @@ public class TicketView {
     *@param contr ticketController object
     */
     public TicketView(){
-        this.mf = new MainFrame();
+        //this.mf = new MainFrame();
     }
     public MainFrame getMf(){
         return this.mf;
     }
-    public void initialsetup(int col, int lin){
-        mf.getMjp().getCp().createMoreButtons(col, lin);
+    // public void initialsetup(int col, int lin){
+    //     mf.getMjp().getCp().createMoreButtons(col, lin);
         
-    }
-    public void displayButtons(ArrayList<Ticket> tickets, ArrayList<String> headers)
-    {
-        mf.getMjp().getCp().displayDataOnButtons(tickets, headers);
+    // }
+    // public void displayButtons(ArrayList<Ticket> tickets, ArrayList<String> headers)
+    // {
+    //     mf.getMjp().getCp().displayDataOnButtons(tickets, headers);
+    // }
+    public void displayTestLayout(){
+        new testFrame();
     }
 
 }

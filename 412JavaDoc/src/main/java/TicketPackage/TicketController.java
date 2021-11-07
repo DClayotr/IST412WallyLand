@@ -22,8 +22,9 @@ public class TicketController {
         this.md = model;
         this.vw = view;
         makeTickets();
-        vw.initialsetup(5, md.getTickets().size());
-        vw.displayButtons(md.getTickets(), md.getHeaders());
+        // vw.initialsetup(5, md.getTickets().size());
+        // vw.displayButtons(md.getTickets(), md.getHeaders());
+        vw.displayTestLayout();
     }
     /**
     *depending on the input from ticketPrompt method in ticket view
