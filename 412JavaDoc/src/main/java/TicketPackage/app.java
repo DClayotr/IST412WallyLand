@@ -5,9 +5,6 @@ public class app {
     {
 
         homeController homeController = new homeController();
-//        TicketModel model = new TicketModel();
-//        TicketView view = new TicketView();
-        //TicketController controller = new TicketController(model, view);
 
     }
 }

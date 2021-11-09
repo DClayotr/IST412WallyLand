@@ -44,8 +44,7 @@ public class homeController implements ActionListener{
        
         if(obj == homeScreen.tixbtn){
             TicketModel model = new TicketModel();
-            TicketView view = new TicketView();
-            TicketController = new TicketController(model, view);
+            TicketController = new TicketController(model);
             
         }
      }
