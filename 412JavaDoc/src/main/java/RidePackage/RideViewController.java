@@ -6,7 +6,6 @@
 package RidePackage;
 
 import java.util.ArrayList;
-
 /**
  *
  * @author cjm6757
@@ -16,9 +15,15 @@ public class RideViewController {
     private Ride ride;
     private ArrayList<Ride> rideList = new ArrayList<>();
 
-    public RideViewController(Ride ride) {
-        this.ride = ride;
-        rideList.add(ride);
+    public RideViewController() {
+        Ride tilt = new Ride(false, "Tilt-a-Whirl", 15, true, "The Tilt-a-whirl is a classic carnival ride.");
+        Ride coaster = new Ride(false, "Lightning Bolt", 55, true, "The Lightning bolt is an inversion coaster.");
+        Ride ferris = new Ride(false, "Ferris Wheel", 0, false, "The Ferris Wheel is a token attraction.");
+        Ride parade = new Ride(true, "Afternoon Parade", 0, false, "The Afternoon Parade occurs daily at 1 PM.");
+        rideList.add(tilt);
+        rideList.add(coaster);
+        rideList.add(ferris);
+        rideList.add(parade);
     }
     
     public void addRide(Ride ride){
@@ -60,7 +65,9 @@ public class RideViewController {
         return -1;
     }
     
-    //This is just to facilitate basic function
-    //It will be more complex, however more development is needed to know what must be added
-    
+    public void updateRide(Ride r, boolean running, boolean hasWait, int waitTime){
+        r.updateRideRunning(running);
+        r.updateWaitTime(waitTime, hasWait);
+    }
+       
 }
