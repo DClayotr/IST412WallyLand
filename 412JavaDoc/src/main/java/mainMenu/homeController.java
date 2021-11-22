@@ -38,13 +38,20 @@ public class homeController implements ActionListener{
        homeScreen.setVisible(true);
        
     }
+    public void setHomeScreenVisible(){
+        homeScreen.setVisible(true);
+    }
+    public void setHomeScreenInvisible(){
+        homeScreen.setVisible(false);
+    }
      @Override
     public void actionPerformed(ActionEvent e) {
         Object obj = e.getSource();
        
         if(obj == homeScreen.tixbtn){
+            setHomeScreenInvisible();
             TicketModel model = new TicketModel();
-            TicketController = new TicketController(model);
+            TicketController = new TicketController(model, this);
             
         }
      }

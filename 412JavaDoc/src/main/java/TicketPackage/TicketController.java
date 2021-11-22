@@ -7,6 +7,9 @@ package TicketPackage;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import mainMenu.homeController;
+
 import java.awt.event.*;
 /**
  *
@@ -15,20 +18,23 @@ import java.awt.event.*;
 public class TicketController {
     private TicketModel md;
     private TicketView vw;
+    private homeController hc;
     private TicketViewer tv;
     private ArrayList<Ticket> ticketTracker;
     /**
     *Constructor for ticket controller, takes in a ticket model object
     *@param model TicketModel object
     */
-    public TicketController(TicketModel model){
+    public TicketController(TicketModel model, homeController hmcntl){
         this.md = model;
-        this.ticketTracker = new ArrayList<Ticket>();
+        this.hc = hmcntl;
+        this.ticketTracker = this.md.getTickets();
         makeTickets();
         this.vw = new TicketView(this.md.getTickets());
         addPurchaseActionListener();
         addSearchActionListener();
         addShowTicketsActionListener();
+        addBackButtonActionListener();
         vw.initialsetup();
 
     }
@@ -46,7 +52,7 @@ public class TicketController {
     public ArrayList<Ticket> getTickets(){
         return md.getTickets();
     }
-    public void addSingleTickets(){
+    public ArrayList<String> addSingleTickets(){
         ArrayList<String> arr = new ArrayList<String>();
         for(int i = 0; i < md.getTickets().size(); i++){
             if(md.getTickets().get(i).getPeople() == 1){
@@ -57,7 +63,7 @@ public class TicketController {
                 this.ticketTracker.add(md.getTickets().get(i));
             }
         }
-
+        return arr;
     }
     public void addThreePersonTickets(){
         ArrayList<String> arr = new ArrayList<String>();
@@ -72,7 +78,7 @@ public class TicketController {
         }
 
     }
-    public void addFivePersonTickets(){
+    public ArrayList<String> addFivePersonTickets(){
         ArrayList<String> arr = new ArrayList<String>();
         for(int i = 0; i < md.getTickets().size(); i++){
             if(md.getTickets().get(i).getPeople() == 5){
@@ -83,7 +89,7 @@ public class TicketController {
                 this.ticketTracker.add(md.getTickets().get(i));
             }
         }
-
+        return arr;
     }
 
     private void addPurchaseActionListener(){
@@ -129,6 +135,14 @@ public class TicketController {
                 tv.setVisible(true);
               
             } 
+        });
+    }
+    private void addBackButtonActionListener(){
+        vw.getMf().getMjp().getNp().getBackButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                vw.getMf().setVisible(false);
+                hc.setHomeScreenVisible();
+            }
         });
     }
   
