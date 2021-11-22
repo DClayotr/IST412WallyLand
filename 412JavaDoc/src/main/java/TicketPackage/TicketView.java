@@ -19,7 +19,7 @@ public class TicketView {
     *takes a ticket controller object
     *@param contr ticketController object
     */
-    public TicketView(ArrayList<ArrayList<String>> arr){
+    public TicketView(ArrayList<Ticket> arr){
         this.mf = new MainFrame(arr);
 
     }
@@ -31,7 +31,7 @@ public class TicketView {
         this.mf.getMjp().getCp();
         
     }
-    public void updateCp(ArrayList<ArrayList<String>> arr){
+    public void updateCp(ArrayList<Ticket> arr){
         this.mf.getMjp().getCp().updateScreen(arr);
     }
     public void showConfirmationMessage(){

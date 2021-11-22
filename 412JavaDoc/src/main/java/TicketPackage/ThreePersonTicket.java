@@ -10,6 +10,7 @@ public class ThreePersonTicket implements Ticket {
     private LocalDate time;
     private String ID;
     private int people;
+    private int scans;
     private String type;
     private Boolean used;
     private Boolean purchased;
@@ -20,19 +21,20 @@ public class ThreePersonTicket implements Ticket {
         this.ride = ride;
         this.ID = ID;
         this.people = 3;
+        this.scans = 0;
         this.type = "Three Person";
         this.used = false;
         this.purchased = false;
     }
     public void scan(){
-        while(this.people < 3 && !used){
+        while(this.scans < this.people && !used){
             Scanner myObj = new Scanner(System.in);
             System.out.println("Scan rider?: ");
             String scanned = myObj.nextLine();
             if(scanned.toLowerCase() == "y"){
                 System.out.println("scanned");
-                this.people++;
-                if(this.people == 3){
+                this.scans++;
+                if(this.scans == 3){
                     this.used = true;
                 }
             }else{

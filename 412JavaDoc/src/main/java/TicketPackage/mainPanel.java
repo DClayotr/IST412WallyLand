@@ -12,7 +12,7 @@ public class mainPanel extends JPanel{
     private NorthPanel np;
     private southPanel sp;
 
-    public mainPanel(ArrayList<ArrayList<String>> arr)
+    public mainPanel(ArrayList<Ticket> arr)
     {
         super();
         setBackground(Color.yellow);

@@ -17,7 +17,6 @@ public class TicketController {
     private TicketView vw;
     private TicketViewer tv;
     private ArrayList<Ticket> ticketTracker;
-    private ArrayList<ArrayList<String>> ticketArray;
     /**
     *Constructor for ticket controller, takes in a ticket model object
     *@param model TicketModel object
@@ -26,8 +25,7 @@ public class TicketController {
         this.md = model;
         this.ticketTracker = new ArrayList<Ticket>();
         makeTickets();
-        this.ticketArray = createTicketToString();
-        this.vw = new TicketView(ticketArray);
+        this.vw = new TicketView(this.md.getTickets());
         addPurchaseActionListener();
         addSearchActionListener();
         addShowTicketsActionListener();
@@ -48,52 +46,46 @@ public class TicketController {
     public ArrayList<Ticket> getTickets(){
         return md.getTickets();
     }
-    public ArrayList<String> addSingleTickets(){
+    public void addSingleTickets(){
         ArrayList<String> arr = new ArrayList<String>();
         for(int i = 0; i < md.getTickets().size(); i++){
             if(md.getTickets().get(i).getPeople() == 1){
-                arr.add(String.valueOf(md.getTickets().get(i).getPrice()));
-                arr.add(md.getTickets().get(i).getRide());
-                arr.add(md.getTickets().get(i).getTime());
-                arr.add(md.getTickets().get(i).getType());
+                // arr.add(String.valueOf(md.getTickets().get(i).getPrice()));
+                // arr.add(md.getTickets().get(i).getRide());
+                // arr.add(md.getTickets().get(i).getTime());
+                // arr.add(md.getTickets().get(i).getType());
                 this.ticketTracker.add(md.getTickets().get(i));
             }
         }
-        return arr;
+
     }
-    public ArrayList<String> addThreePersonTickets(){
+    public void addThreePersonTickets(){
         ArrayList<String> arr = new ArrayList<String>();
         for(int i = 0; i < md.getTickets().size(); i++){
             if(md.getTickets().get(i).getPeople() == 3){
-                arr.add(String.valueOf(md.getTickets().get(i).getPrice()));
-                arr.add(md.getTickets().get(i).getRide());
-                arr.add(md.getTickets().get(i).getTime());
-                arr.add(md.getTickets().get(i).getType());
+                // arr.add(String.valueOf(md.getTickets().get(i).getPrice()));
+                // arr.add(md.getTickets().get(i).getRide());
+                // arr.add(md.getTickets().get(i).getTime());
+                // arr.add(md.getTickets().get(i).getType());
                 this.ticketTracker.add(md.getTickets().get(i));
             }
         }
-        return arr;
+
     }
-    public ArrayList<String> addFivePersonTickets(){
+    public void addFivePersonTickets(){
         ArrayList<String> arr = new ArrayList<String>();
         for(int i = 0; i < md.getTickets().size(); i++){
             if(md.getTickets().get(i).getPeople() == 5){
-                arr.add(String.valueOf(md.getTickets().get(i).getPrice()));
-                arr.add(md.getTickets().get(i).getRide());
-                arr.add(md.getTickets().get(i).getTime());
-                arr.add(md.getTickets().get(i).getType());
+                // arr.add(String.valueOf(md.getTickets().get(i).getPrice()));
+                // arr.add(md.getTickets().get(i).getRide());
+                // arr.add(md.getTickets().get(i).getTime());
+                // arr.add(md.getTickets().get(i).getType());
                 this.ticketTracker.add(md.getTickets().get(i));
             }
         }
-        return arr;
+
     }
-    public ArrayList<ArrayList<String>> createTicketToString(){
-        ArrayList<ArrayList<String>> ticketArray = new ArrayList<ArrayList<String>>();
-        ticketArray.add(addSingleTickets());
-        ticketArray.add(addThreePersonTickets());
-        ticketArray.add(addFivePersonTickets());
-        return ticketArray;
-    }
+
     private void addPurchaseActionListener(){
         vw.getMf().getMjp().getSp().getPurchaseButton().addActionListener(new ActionListener() { 
             public void actionPerformed(ActionEvent e) { 
@@ -110,20 +102,21 @@ public class TicketController {
         vw.getMf().getMjp().getNp().getSearchButton().addActionListener(new ActionListener() { 
             public void actionPerformed(ActionEvent e) { 
                 ticketTracker = new ArrayList<Ticket>();
-                ArrayList<ArrayList<String>> ticketArray = new ArrayList<ArrayList<String>>();
+                //ArrayList<ArrayList<String>> ticketArray = new ArrayList<ArrayList<String>>();
                 if(vw.getMf().getMjp().getNp().singleTickets()){
                    
-                    ticketArray.add(addSingleTickets());
+                    addSingleTickets();
+                    //ticketArray.add(addSingleTickets());
                 }
                 if(vw.getMf().getMjp().getNp().threePersonTickets()){
-                   
-                    ticketArray.add(addThreePersonTickets());
+                   addThreePersonTickets();
+                    //ticketArray.add(addThreePersonTickets());
                 }
                 if(vw.getMf().getMjp().getNp(). fivePersonTickets()){
-                   
-                    ticketArray.add(addFivePersonTickets());
+                   addFivePersonTickets();
+                    ///ticketArray.add(addFivePersonTickets());
                 }
-                vw.updateCp(ticketArray);
+                vw.updateCp(ticketTracker);
             } 
         });
     }

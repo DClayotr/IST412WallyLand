@@ -10,7 +10,7 @@ public class MainFrame extends JFrame {
     
     private mainPanel mjp;
 
-    public MainFrame(ArrayList<ArrayList<String>> arr) {
+    public MainFrame(ArrayList<Ticket> arr) {
         super("");
         LayoutSetupMAC();
         mjp = new mainPanel(arr);

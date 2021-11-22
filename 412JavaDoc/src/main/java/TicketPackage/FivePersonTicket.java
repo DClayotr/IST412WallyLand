@@ -11,6 +11,7 @@ public class FivePersonTicket implements Ticket {
     private String ID;
     private String type;
     private int people;
+    private int scans;
     private Boolean used;
     private Boolean purchased;
 
@@ -20,19 +21,20 @@ public class FivePersonTicket implements Ticket {
         this.ride = ride;
         this.ID = ID;
         this.people = 5;
+        this.scans = 0;
         this.type = "Five Person";
         this.used = false;
         this.purchased = false;
     }
     public void scan(){
-        while(this.people < 5 && !used){
+        while(this.scans < this.people && !used){
             Scanner myObj = new Scanner(System.in);
             System.out.println("Scan rider?: ");
             String scanned = myObj.nextLine();
             if(scanned.toLowerCase() == "y"){
                 System.out.println("scanned");
-                this.people++;
-                if(this.people == 5){
+                this.scans++;
+                if(this.scans == 5){
                     this.used = true;
                 }
             }else{
