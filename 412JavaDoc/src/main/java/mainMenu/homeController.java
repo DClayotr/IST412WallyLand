@@ -11,6 +11,10 @@ import java.awt.event.ActionListener;
 import TicketPackage.TicketController;
 import TicketPackage.TicketModel;
 import TicketPackage.TicketView;
+import RidePackage.Ride;
+import RidePackage.RideView;
+import RidePackage.RideViewController;
+import RidePackage.RideViewModel;
 /**
  *
  * @author noellefajt
@@ -22,6 +26,11 @@ public class homeController implements ActionListener{
     TicketController TicketController;
     TicketModel TicketModel;
     TicketView TicketView;
+    Ride Ride;
+    RideView RideView;
+    RideViewController RideViewController;
+    RideViewModel RideViewModel;
+    
     //loginUI = new LoginUI(this);
      //homeScreen userSearchCntl = new homeScreen(this);
     //homeScreen = new homeScreen(this);
@@ -53,6 +62,13 @@ public class homeController implements ActionListener{
             TicketModel model = new TicketModel();
             TicketController = new TicketController(model, this);
             
+        }
+        
+        if(obj == homeScreen.ridebtn){
+            setHomeScreenInvisible();
+            RideViewModel = new RideViewModel();
+            String[] array = {""};
+            RideViewModel.main(array);
         }
      }
 }
