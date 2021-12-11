@@ -9,24 +9,24 @@ package PlannerPackage;
  * Planner serves as the model in this app.
  * @author mattu
  */
-public class Planner {
-    private String time;
-    private String description;
+public class Planner {    
+    private String name;
+    private int time;
     
-    public Planner(String time, String description){
+    public Planner(String name, int time){
         /**
          * Constructor for the daily planner
-         * @param time dictates the time of the event in the daily planner, description creates a description of the event.
+         * @param , name determines what the event is displayed as, time dictates the time of the event in the daily planner
          */
+        this.name = name;
         this.time = time;
-        this.description = description;
     }
     
     /**
      * Getter for time variable
      * @return 
      */
-    public String getTime(){
+    public int getTime(){
         return time;
     }
     
@@ -34,35 +34,29 @@ public class Planner {
      * Setter for time variable
      * @param time 
      */
-    public void setTime(String time) {
-        if(time.equals("4:00am")){
-            this.time = "*Invalid*";
-        }
-        else{
-            this.time = time;
-        }
+    public void setTime(int time) {
+        this.time = time;
     }
     
     /**
-     * Getter for description variable
+     * Getter for name variable
      * @return 
      */
-    public String getDescription(){
-        return description;
+    public String getName(){
+        return name;
     }
     
     /**
-     * Setter for description variable
-     * @param description 
+     * Setter for name variable
+     * @param name
      */
-    public void setDescription(String description){
-        if(description.equals("Roller Coaster") || description.equals("Log Flume") || description.equals("Ferris Wheel")){
-            this.description = description;
+    public void setName(String name){
+        this.name = name;
         }
-        else{
-            this.description = "*Invalid*";
-        }
-    }
     
-
+    @Override
+    public String toString() {
+        return name + " at " + time +":00";
+    }
 }
+

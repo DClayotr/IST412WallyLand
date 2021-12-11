@@ -6,63 +6,52 @@
 package PlannerPackage;
 
 /**
- * The controller is responsible for communicating with the different classes in the app to create a cohesive user experience.
+ *
  * @author mattu
  */
 public class PlannerController {
-    private Planner model;
-    private PlannerView view;
 
-    
-    /**
-     * Constructor in the controller class
-     * @param model
-     * @param view 
-     */
-    public PlannerController(Planner model, PlannerView view){
-        this.model = model;
-        this.view = view;
+    private final EventList eventList;
+    private final PlannerView view;
+    //show tickets?
+
+    public PlannerController() {
+        eventList = new EventList();
+        view = new PlannerView(this);
+        view.setVisible(true);       
+        
     }
 
-    /**
-     * Set time method
-     * @param time 
-     */
-    public void setTime(String time){
-        model.setTime(time);
-     }
-     
-     /**
-      * Get time method
-      * @return 
-      */
-     public String getTime(){
-         return model.getTime();
-     }
-     
-     /**
-      * Set description method
-      * @param description 
-      */
-     public void setDescription(String description){
-        model.setDescription(description);  
-     }
-     
-     /**
-      * Get description method
-      * @return 
-      */
-     public String getDescription(){
-         return model.getDescription();
-     } 
-     
-     /**
-      * Method to print the events to the user based on data that can be updated.
-      */
-     public void displayEvents(){
-         System.out.println("You have " + model.getDescription() + " on your schedule today at " + model.getTime() + ".");
-     }
-     
+    int getListSize() {
+        return eventList.getEvents().size();
+    }
+
+    Planner getEvent(int i) {
+        return eventList.getEvents().get(i);
+    }
     
+    String getName(int i) {
+        return eventList.getEvents().get(i).getName();
+    }
     
+    int getTime(int i) {
+        return eventList.getEvents().get(i).getTime();
+    }
+    
+        
+//    void showTicketUI() {
+//        ticketUI.setVisible(true);
+//    }
+    
+//    void showFieldsInView(){
+//        view.setVisible(true);
+//    }
+        
+    void addNewEventToEndOfList() {
+        eventList.getEvents().add(new Planner("Event", 8));
+    }
+    
+    void delete(int index) {
+        eventList.getEvents().remove(index);
+    }
 }
