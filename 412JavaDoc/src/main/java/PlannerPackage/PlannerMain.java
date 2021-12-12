@@ -15,7 +15,7 @@ public class PlannerMain {
      /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {      
         SwingUtilities.invokeLater(() -> {
             PlannerController cntl = new PlannerController();
         });

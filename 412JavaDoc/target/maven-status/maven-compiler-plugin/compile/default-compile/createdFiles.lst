@@ -6,7 +6,6 @@ TicketPackage\Ticket.class
 PlannerPackage\PlannerView.class
 TicketPackage\ThreePersonTicket.class
 PlannerPackage\PlannerController.class
-mainMenu\homeController.class
 TicketPackage\SinglePersonTicket.class
 mainMenu\homeScreen$1.class
 TicketPackage\MainFrame.class
@@ -21,7 +20,6 @@ TicketPackage\mainPanel.class
 RestaurantReservation\restaurantResUI.class
 TicketPackage\TicketViewer.class
 PlannerPackage\EventList.class
-TicketPackage\TicketView.class
 RestaurantReservation\restaurantResCntl.class
 RidePackage\RideViewModel$2.class
 TicketPackage\ticketFactory.class

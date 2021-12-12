@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import mainMenu.homeController;
 
 /**
  *
@@ -23,17 +24,19 @@ public class PlannerView extends JFrame {
     private final JTextField eventNameTextField;
     private final JTextField eventTimeTextField;
     private int index;
+    private final homeController hc;
 
     private final PlannerController cntl;
 
     
-    public PlannerView(PlannerController plannerController) {
+    public PlannerView(PlannerController plannerController, homeController hmcntl) {
         this.cntl = plannerController;
         eventNameTextField = new JTextField();
         eventTimeTextField = new JTextField();
         initComponents();
         displayEventInfo();
         index = 0;
+        this.hc = hmcntl;
     }
 
     private void displayEventInfo() {
@@ -69,6 +72,7 @@ public class PlannerView extends JFrame {
         JButton deleteButton = new JButton("Delete");
         JButton nextButton = new JButton("Next");
         JButton newButton = new JButton("New");
+        JButton backButton = new JButton("Back");
 
         saveButton.addActionListener(event -> saveText());
         viewButton.addActionListener(event -> viewList());
@@ -76,9 +80,11 @@ public class PlannerView extends JFrame {
         nextButton.addActionListener(event -> displayNextItem());
         previousButton.addActionListener(event -> displayPreviousItem());
         newButton.addActionListener(event -> addNewEvent());
+        backButton.addActionListener(event -> returnHome());
 
         JPanel buttonPanel = new JPanel();
 
+        buttonPanel.add(backButton);
         buttonPanel.add(previousButton);
         buttonPanel.add(newButton);
         buttonPanel.add(saveButton);
@@ -139,7 +145,12 @@ public class PlannerView extends JFrame {
 
     private void ticketView() {
         this.setVisible(false);
-        //show ticket UI?
+        //show ticket UI
+    }
+    
+    private void resView() {
+        this.setVisible(false);
+        //show restaurant UI
     }
 
     private void delete() {
@@ -213,6 +224,11 @@ public class PlannerView extends JFrame {
         displayEventInfo();
         JOptionPane.showMessageDialog(new javax.swing.JFrame(),
                 "Added a new event to your planner. Use the \"Save\" button to save changes.");
+    }
+    
+    private void returnHome(){
+        hc.setHomeScreenVisible();
+        this.setVisible(false);
     }
 
 }
