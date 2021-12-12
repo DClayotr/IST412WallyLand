@@ -37,6 +37,12 @@ public class TicketView {
     public void showConfirmationMessage(){
         int input = JOptionPane.showConfirmDialog(null,"Purchase Succesful","OK",JOptionPane.DEFAULT_OPTION);
     }
+    public void showTableRowError(){
+        int input = JOptionPane.showConfirmDialog(null,"No Ticket Selected","OK",JOptionPane.DEFAULT_OPTION);
+    }
+    public void showSearchPerameterError(){
+        int input = JOptionPane.showConfirmDialog(null,"No Search Parameters selected","OK",JOptionPane.DEFAULT_OPTION);
+    }
     // public void initialsetup(int col, int lin){
     //     mf.getMjp().getCp().createMoreButtons(col, lin);
         

@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.JOptionPane;
+
 import mainMenu.homeController;
 
 import java.awt.event.*;
@@ -96,11 +98,16 @@ public class TicketController {
         vw.getMf().getMjp().getSp().getPurchaseButton().addActionListener(new ActionListener() { 
             public void actionPerformed(ActionEvent e) { 
                 int selectedRow = vw.getMf().getMjp().getCp().getSelectedRow();
-                Ticket selectedTicket = ticketTracker.get(selectedRow);
-                int selectedTicketRow = md.getTickets().indexOf(selectedTicket);
-                md.getTickets().get(selectedTicketRow).setPurchased(true);
-                md.addPurchasedTicket(md.getTickets().get(selectedTicketRow));
-                vw.showConfirmationMessage();
+                if(selectedRow != -1){
+                    Ticket selectedTicket = ticketTracker.get(selectedRow);
+                    int selectedTicketRow = md.getTickets().indexOf(selectedTicket);
+                    md.getTickets().get(selectedTicketRow).setPurchased(true);
+                    md.addPurchasedTicket(md.getTickets().get(selectedTicketRow));
+                    vw.showConfirmationMessage();
+                }else{
+                    vw.showTableRowError();
+                }
+                
             } 
         });
     }
@@ -109,20 +116,25 @@ public class TicketController {
             public void actionPerformed(ActionEvent e) { 
                 ticketTracker = new ArrayList<Ticket>();
                 //ArrayList<ArrayList<String>> ticketArray = new ArrayList<ArrayList<String>>();
-                if(vw.getMf().getMjp().getNp().singleTickets()){
-                   
-                    addSingleTickets();
-                    //ticketArray.add(addSingleTickets());
+                if(!vw.getMf().getMjp().getNp().singleTickets() && !vw.getMf().getMjp().getNp().threePersonTickets() && !vw.getMf().getMjp().getNp().fivePersonTickets()){
+                    vw.showSearchPerameterError();
+                }else{
+                    if(vw.getMf().getMjp().getNp().singleTickets()){
+                    
+                        addSingleTickets();
+                        //ticketArray.add(addSingleTickets());
+                    }
+                    if(vw.getMf().getMjp().getNp().threePersonTickets()){
+                        addThreePersonTickets();
+                        //ticketArray.add(addThreePersonTickets());
+                    }
+                    if(vw.getMf().getMjp().getNp().fivePersonTickets()){
+                        addFivePersonTickets();
+                        ///ticketArray.add(addFivePersonTickets());
+                    }
+                    vw.updateCp(ticketTracker);
                 }
-                if(vw.getMf().getMjp().getNp().threePersonTickets()){
-                   addThreePersonTickets();
-                    //ticketArray.add(addThreePersonTickets());
-                }
-                if(vw.getMf().getMjp().getNp(). fivePersonTickets()){
-                   addFivePersonTickets();
-                    ///ticketArray.add(addFivePersonTickets());
-                }
-                vw.updateCp(ticketTracker);
+                
             } 
         });
     }

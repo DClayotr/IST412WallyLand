@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import PlannerPackage.PlannerController;
+import RestaurantReservation.restaurantResCntl;
 import TicketPackage.TicketController;
 import TicketPackage.TicketModel;
 import TicketPackage.TicketView;
@@ -76,6 +77,10 @@ public class homeController implements ActionListener{
         if(obj == homeScreen.planbtn){
             setHomeScreenInvisible();
             PlannerController cntl = new PlannerController();
+        }
+        if(obj == homeScreen.resbtn){
+            setHomeScreenInvisible();
+            restaurantResCntl cntl = new restaurantResCntl();
         }
      }
 }
