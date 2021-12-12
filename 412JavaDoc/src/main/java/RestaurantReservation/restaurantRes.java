@@ -14,16 +14,18 @@ public class restaurantRes {
     private String lName;
     private String phone;
     private String resName;
-    private int numPeople;
+    private String numPeople;
+    private String date;
     private String resTime;
+    private String resDate;
 
    
-    public restaurantRes(String fName, String lName, String phone, String resName, int numPeople, String resTime) {
+    public restaurantRes(String fName, String lName, String phone, String numPeople, String resName, String resTime) {
         this.fName = fName;
         this.lName = lName;
         this.phone = phone;
-        this.resName = resName;
         this.numPeople = numPeople;
+        this.resName = resName;
         this.resTime = resTime;
     }
 
@@ -95,7 +97,7 @@ public class restaurantRes {
      * gets the number of people in the reservation party
      * @return numPeople = number of people in the party
      */
-    public int getNumPeople() {
+    public String getNumPeople() {
         return numPeople;
     }
 
@@ -103,7 +105,7 @@ public class restaurantRes {
      * sets the number of people in the reservation party
      * @param numPeople = number of people in the party
      */
-    public void setNumPeople(int numPeople) {
+    public void setNumPeople(String numPeople) {
         this.numPeople = numPeople;
     }
 
@@ -138,7 +140,7 @@ public class restaurantRes {
      */
     public String getInfo(){
         String info = "First Name: " + getfName() + " Last Name: " + getlName() + " Phone Number: " + getPhone() 
-                + " Restaurant: " + getResName() + " Time: " + getResTime() + " Number of People: " + getNumPeople();
+               + " Number of People: " + getNumPeople()  + " Restaurant: " + getResName() + " Time: " + getResTime();
         return info;
     }
     

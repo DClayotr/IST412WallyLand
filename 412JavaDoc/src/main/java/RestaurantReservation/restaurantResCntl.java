@@ -12,6 +12,11 @@ import RestaurantReservation.WalleyLandOGList;
 import RestaurantReservation.Floor2List;
 import RestaurantReservation.ParkLoungeList;
 import RestaurantReservation.WLClubList;
+import RestaurantReservation.restaurantRes;
+import java.util.ArrayList;
+import RestaurantReservation.RestaurantsBrowseUI;
+
+
 
 /**
  *
@@ -19,31 +24,26 @@ import RestaurantReservation.WLClubList;
  */
 public class restaurantResCntl implements ActionListener{
     private RestaurantUI restaurantUI;
+    private RestaurantsBrowseUI restaurantsBrowseUI;
+    RestaurantBrowseCntl RestaurantBrowseCntl;
     WalleyLandOGList WalleyLandOGList;
     Floor2List Floor2List;
     ParkLoungeList ParkLoungeList;
     WLClubList WLClubList;
+    private restaurantRes restaurantRes;
+    private ArrayList<restaurantRes> WalleyLandList;
     
     /**
      * constructor for setting up the restaurant reservation controller
      */
     public restaurantResCntl(){
         restaurantUI = new RestaurantUI(this);
-        
         restaurantUI.rescmbo.addActionListener(this);
         restaurantUI.submitBtn.addActionListener(this);
+        restaurantUI.backbtn.addActionListener(this);
         restaurantUI.setVisible(true);
     }
-//     public static void main(String[] args)
-//    {
-//        restaurantResCntl restaurantResCntl = new restaurantResCntl();
-//    }
-    /**
-     * method that creates the reservation restaurant UI
-     */
-//    public void createRestaurantResUI(){
-//        
-//    } 
+    
     
     /**
      * method that will handle all the event actions on the restaurant res UI,
@@ -55,25 +55,47 @@ public class restaurantResCntl implements ActionListener{
         Object obj = e.getSource();
         if(obj == restaurantUI.submitBtn)
         {
+            
             System.out.println("submit hit");
             String selectedRes = restaurantUI.rescmbo.getSelectedItem().toString();
             System.out.println(selectedRes);
             if(selectedRes.equals("Walley Land OG")){
                 WalleyLandOGList = new WalleyLandOGList();
-                WalleyLandOGList.addRes();
+                restaurantRes WalleyRes = new restaurantRes(restaurantUI.getFirstName(),restaurantUI.getLastName(),
+                restaurantUI.getPhone(), restaurantUI.getNumPeople(), restaurantUI.getRes(), restaurantUI.getTime());
+                WalleyLandOGList.addRes(WalleyRes);
+                System.out.println(restaurantUI.getFirstName());
+                WalleyLandOGList.printList();
             }
             else if (selectedRes.equals("Floor 2")){
                 Floor2List = new Floor2List();
-                Floor2List.addRes();
+                restaurantRes Floor2ListRes = new restaurantRes(restaurantUI.getFirstName(),restaurantUI.getLastName(),
+                restaurantUI.getPhone(), restaurantUI.getNumPeople(), restaurantUI.getRes(), restaurantUI.getTime());
+                Floor2List.addRes(Floor2ListRes);
+                Floor2List.printList();
             }
              else if (selectedRes.equals("Park Lounge")){
                 ParkLoungeList = new ParkLoungeList();
-                ParkLoungeList.addRes();
+                restaurantRes ParkLoungeListRes = new restaurantRes(restaurantUI.getFirstName(),restaurantUI.getLastName(),
+                restaurantUI.getPhone(), restaurantUI.getNumPeople(), restaurantUI.getRes(), restaurantUI.getTime());
+                ParkLoungeList.addRes(ParkLoungeListRes);
+                ParkLoungeList.printList();
             }
              else if (selectedRes.equals("WL Club")){
                 WLClubList = new WLClubList();
-                WLClubList.addRes();
+                restaurantRes WLClubListRes = new restaurantRes(restaurantUI.getFirstName(),restaurantUI.getLastName(),
+                restaurantUI.getPhone(), restaurantUI.getNumPeople(), restaurantUI.getRes(), restaurantUI.getTime());
+                WLClubList.addRes(WLClubListRes);
+                WLClubList.printList(); 
             }
+            restaurantUI.clearData();
         }
+       if (obj == restaurantUI.backbtn)
+        {
+            restaurantUI.setVisible(false);
+            RestaurantBrowseCntl = new RestaurantBrowseCntl();
+        }
+      
     }
+     
 }

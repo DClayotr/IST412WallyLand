@@ -12,15 +12,20 @@ import java.util.ArrayList;
  */
 //implementing abstract ResList class
 public class ParkLoungeList implements ResList{
-    private ArrayList <restaurantRes> wlcResList = new ArrayList<>();
+    private ArrayList <restaurantRes> parkResList = new ArrayList<>();
     @Override
-    public void addRes(){
+    public void addRes(restaurantRes res){
         System.out.println("Park Lounge Club reservation made");
+        parkResList.add(res);
         
     }
-//    @Override
-//    public void addRes(restaurantRes restaurantRes){
-//        System.out.println("Park Lounge Club reservation made");
-//        wlcResList.add(restaurantRes);
-//    }
+ @Override
+    public void printList()
+    {
+        for (restaurantRes restaurantRes : parkResList)
+        {
+            System.out.println(restaurantRes.getInfo());
+            
+        }
+    }
 }

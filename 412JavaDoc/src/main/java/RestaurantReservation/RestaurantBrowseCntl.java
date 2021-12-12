@@ -7,17 +7,24 @@ package RestaurantReservation;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import RestaurantReservation.RestaurantsBrowseUI;
+import RestaurantReservation.RestaurantUI;
+import RestaurantReservation.restaurantResCntl;
 import TicketPackage.TicketController;
 import TicketPackage.TicketModel;
+import mainMenu.homeController;
 /**
  *
  * @author noellefajt
  */
 public class RestaurantBrowseCntl implements ActionListener{
     private RestaurantsBrowseUI RestaurantsBrowseUI;
+    private restaurantResCntl restaurantResCntl;
    
     public RestaurantBrowseCntl(){
         RestaurantsBrowseUI = new RestaurantsBrowseUI(this);
+        RestaurantsBrowseUI.setVisible(true);
+        RestaurantsBrowseUI.makeResBtn.addActionListener(this);
+        RestaurantsBrowseUI.backBtn.addActionListener(this);
     }
     
     @Override
@@ -25,12 +32,12 @@ public class RestaurantBrowseCntl implements ActionListener{
         Object obj = e.getSource();
        
         if(obj == RestaurantsBrowseUI.makeResBtn){
-            //rescmbo.getSelectedItem().toString();
-            
-            //TicketModel model = new TicketModel();
-            //TicketView view = new TicketView();
-            //TicketController = new TicketController(model);
-            
+            RestaurantsBrowseUI.setVisible(false);
+            restaurantResCntl = new restaurantResCntl();
+        }
+        if(obj == RestaurantsBrowseUI.backBtn){
+            RestaurantsBrowseUI.setVisible(false);
+            homeController homeController = new homeController();
         }
      }
     

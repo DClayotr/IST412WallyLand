@@ -14,13 +14,18 @@ import java.util.ArrayList;
 public class WLClubList implements ResList{
     private ArrayList <restaurantRes> wlcResList = new ArrayList<>();
     @Override
-    public void addRes(){
+    public void addRes(restaurantRes res){
         System.out.println("WL Club reservation made");
+        wlcResList.add(res);
     }
-//    @Override
-//    public void addRes(restaurantRes restaurantRes){
-//        System.out.println("WL Club reservation made");
-//        wlcResList.add(restaurantRes);
-//    }
+    
+    @Override
+    public void printList()
+    {
+        for (restaurantRes restaurantRes : wlcResList)
+        {
+            System.out.println(restaurantRes.getInfo());            
+        }
+    }
     
 }

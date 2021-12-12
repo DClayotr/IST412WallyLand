@@ -4,12 +4,16 @@
  */
 package RestaurantReservation;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author noellefajt
  */
 //abstract method to be implemented by each restaurant reservation list
 public interface ResList {
-    void addRes();
-    //void addRes(restaurantRes restaurantRes);
+    void addRes(restaurantRes res);
+    void printList();
     }
+
+    

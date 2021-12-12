@@ -12,17 +12,20 @@ import java.util.ArrayList;
  */
 //implementing abstract ResList class
 public class WalleyLandOGList implements ResList{
-    //private ArrayList <restaurantRes> walResList = new ArrayList<>();
+    private ArrayList <restaurantRes> walResList = new ArrayList<>();
     @Override
-    public void addRes(){
+    public void addRes(restaurantRes res){
         System.out.println("Walley Land OG reservation made");
-        //walResList.add(restaurantRes);
+        walResList.add(res);
     }
-//    @Override
-//    public void addRes(restaurantRes restaurantRes){
-//        System.out.println("Walley Land OG reservation made");
-//        walResList.add(restaurantRes);
-//    }
-    
+ @Override
+    public void printList()
+    {
+        for (restaurantRes restaurantRes : walResList)
+        {
+            System.out.println(restaurantRes.getInfo());
+            
+        }
+    }
     
 }

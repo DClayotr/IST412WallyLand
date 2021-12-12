@@ -14,13 +14,18 @@ import java.util.ArrayList;
 public class Floor2List implements ResList{
      private ArrayList <restaurantRes> floor2ResList = new ArrayList<>();
      @Override
-    public void addRes(){
+    public void addRes(restaurantRes res){
         System.out.println("Floor 2 reservation made");
+        floor2ResList.add(res);
         
     }
-//    @Override
-//    public void addRes(restaurantRes restaurantRes){
-//        System.out.println("Floor 2 reservation made");
-//        floor2ResList.add(restaurantRes);
-//    }
+     @Override
+    public void printList()
+    {
+        for (restaurantRes restaurantRes : floor2ResList)
+        {
+            System.out.println(restaurantRes.getInfo());
+            
+        }
+    }
 }
