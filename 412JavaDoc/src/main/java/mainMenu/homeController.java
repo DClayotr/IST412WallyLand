@@ -8,6 +8,8 @@ import mainMenu.homeScreen;
 import TicketPackage.app;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import PlannerPackage.PlannerController;
 import TicketPackage.TicketController;
 import TicketPackage.TicketModel;
 import TicketPackage.TicketView;
@@ -69,6 +71,11 @@ public class homeController implements ActionListener{
             RideViewModel = new RideViewModel();
             String[] array = {""};
             RideViewModel.main(array);
+        }
+
+        if(obj == homeScreen.planbtn){
+            setHomeScreenInvisible();
+            PlannerController cntl = new PlannerController();
         }
      }
 }
