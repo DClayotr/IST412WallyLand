@@ -9,17 +9,19 @@ package PlannerPackage;
  *
  * @author mattu
  */
+import mainMenu.homeController;
+
 public class PlannerController {
 
     private final EventList eventList;
     private final PlannerView view;
+    private homeController hc;
     //show tickets?
 
     public PlannerController() {
         eventList = new EventList();
-        view = new PlannerView(this);
-        view.setVisible(true);       
-        
+        view = new PlannerView(this, hc);
+        view.setVisible(true);
     }
 
     int getListSize() {
@@ -54,4 +56,6 @@ public class PlannerController {
     void delete(int index) {
         eventList.getEvents().remove(index);
     }
+    
+
 }
