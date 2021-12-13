@@ -16,10 +16,10 @@ public class RideViewController {
     private ArrayList<Ride> rideList = new ArrayList<>();
 
     public RideViewController() {
-        Ride tilt = new Ride(false, "Tilt-a-Whirl", 15, true, "The Tilt-a-whirl is a classic carnival ride.");
-        Ride coaster = new Ride(false, "Lightning Bolt", 55, true, "The Lightning bolt is an inversion coaster.");
-        Ride ferris = new Ride(false, "Ferris Wheel", 0, false, "The Ferris Wheel is a token attraction.");
-        Ride parade = new Ride(true, "Afternoon Parade", 0, false, "The Afternoon Parade occurs daily at 1 PM.");
+        Ride tilt = new Ride(false, "Tilt-a-Whirl", 15, true, "The Tilt-a-whirl is a classic carnival ride.", true);
+        Ride coaster = new Ride(false, "Lightning Bolt", 55, true, "The Lightning bolt is an inversion coaster.", true);
+        Ride ferris = new Ride(false, "Ferris Wheel", 0, false, "The Ferris Wheel is a token attraction.", false);
+        Ride parade = new Ride(true, "Afternoon Parade", 0, false, "The Afternoon Parade occurs daily at 1 PM.", true);
         rideList.add(tilt);
         rideList.add(coaster);
         rideList.add(ferris);
@@ -56,6 +56,15 @@ public class RideViewController {
         return false;
     }
     
+    public Ride getRideInfo(String name){
+        for(int i = 0; i < rideList.size(); i++){
+            if(rideList.get(i).getRideName().toLowerCase().equals(name.toLowerCase())){
+                return rideList.get(i);
+            }
+        }
+        return rideList.get(0);
+    }
+
     public int getRide(String name){
         for(int i = 0; i < rideList.size(); i++){
             if(rideList.get(i).getRideName().toLowerCase().equals(name.toLowerCase())){
@@ -70,4 +79,7 @@ public class RideViewController {
         r.updateWaitTime(waitTime, hasWait);
     }
        
+    public ArrayList<Ride> getRideList(){
+        return rideList;
+    }
 }

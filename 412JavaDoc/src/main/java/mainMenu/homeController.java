@@ -15,6 +15,7 @@ import TicketPackage.TicketController;
 import TicketPackage.TicketModel;
 import TicketPackage.TicketView;
 import RidePackage.Ride;
+import RidePackage.RideUserView;
 import RidePackage.RideView;
 import RidePackage.RideViewController;
 import RidePackage.RideViewModel;
@@ -33,6 +34,8 @@ public class homeController implements ActionListener{
     RideView RideView;
     RideViewController RideViewController;
     RideViewModel RideViewModel;
+    RideUserView Ruv;
+    TicketModel model;
     
     //loginUI = new LoginUI(this);
      //homeScreen userSearchCntl = new homeScreen(this);
@@ -40,13 +43,14 @@ public class homeController implements ActionListener{
     //homeScreen.setVisible(true);
     
     public homeController(){
-      
+       model = new TicketModel();
        homeScreen = new homeScreen(this);
        
        homeScreen.tixbtn.addActionListener(this);
        homeScreen.resbtn.addActionListener(this);
        homeScreen.planbtn.addActionListener(this);
        homeScreen.ridebtn.addActionListener(this);
+       homeScreen.ridebtn1.addActionListener(this);
        homeScreen.setVisible(true);
        
     }
@@ -62,8 +66,7 @@ public class homeController implements ActionListener{
        
         if(obj == homeScreen.tixbtn){
             setHomeScreenInvisible();
-            TicketModel model = new TicketModel();
-            TicketController = new TicketController(model, this);
+            TicketController = new TicketController(this.model, this);
             
         }
         
@@ -72,6 +75,12 @@ public class homeController implements ActionListener{
             RideViewModel = new RideViewModel();
             String[] array = {""};
             RideViewModel.main(array);
+        }
+        if(obj == homeScreen.ridebtn1){
+            setHomeScreenInvisible();
+            Ruv = new RideUserView();
+            String[] array = {""};
+            Ruv.main(array);
         }
 
         if(obj == homeScreen.planbtn){

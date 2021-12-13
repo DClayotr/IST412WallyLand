@@ -32,7 +32,7 @@ public class homeScreen extends javax.swing.JFrame {
         resbtn = new javax.swing.JButton();
         ridebtn = new javax.swing.JButton();
         planbtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        ridebtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,55 +45,60 @@ public class homeScreen extends javax.swing.JFrame {
 
         resbtn.setText("View Restaurants");
 
-        ridebtn.setText("Ride Wait Times");
+        ridebtn.setText("Ride Wait Times - Employee View");
+        ridebtn.setActionCommand("Ride Wait Times ");
         ridebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ridebtnActionPerformed(evt);
             }
         });
 
-        planbtn.setText("Planning ");
+        planbtn.setText("Planner ");
 
-        jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setText("WallyLand App");
+        ridebtn1.setText("Ride Wait Times - Customer View");
+        ridebtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ridebtn1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
                         .addComponent(resbtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addComponent(tixbtn)
                         .addGap(40, 40, 40))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(ridebtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(116, 116, 116))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(ridebtn1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(planbtn)
-                        .addGap(57, 57, 57))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(76, 76, 76))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tixbtn)
                     .addComponent(resbtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ridebtn)
-                    .addComponent(planbtn))
-                .addGap(81, 81, 81))
+                    .addComponent(planbtn)
+                    .addComponent(ridebtn1))
+                .addGap(44, 44, 44)
+                .addComponent(ridebtn)
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -117,6 +122,10 @@ public class homeScreen extends javax.swing.JFrame {
     private void ridebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ridebtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ridebtnActionPerformed
+
+    private void ridebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ridebtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ridebtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,11 +163,11 @@ public class homeScreen extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JButton planbtn;
     public javax.swing.JButton resbtn;
     public javax.swing.JButton ridebtn;
+    public javax.swing.JButton ridebtn1;
     public javax.swing.JButton tixbtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,12 +18,13 @@ public class Ride {
     private String rideDescript;
     private boolean isRunning;
     
-    public Ride(boolean showType, String name, int currentWait, boolean hasWait, String description){
+    public Ride(boolean showType, String name, int currentWait, boolean hasWait, String description, boolean operating){
         this.isShowType = showType;
         this.isWait = hasWait;
         this.rideDescript = description;
         this.rideName = name;
         this.waitTime = currentWait;
+        this.isRunning = operating;
     }
 
     public void updateWaitTime(int wait, boolean hasWait){
