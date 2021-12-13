@@ -1,7 +1,0 @@
-Dylan Claytor
-Group 8
-**All in package "TicketPackage"
-Factory Method OO-Pattern 
-classes: Ticket, SinglePersonTicket, ThreePersonTicket, FivePersonTicket, ticketFactory, concreteFactory
-Rule-Builder interface Pattern
-classes: TicketView, MainFrame, mainPanel, centerPanel, NorthPanel
