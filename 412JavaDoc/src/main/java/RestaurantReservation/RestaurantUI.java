@@ -4,6 +4,8 @@
  */
 package RestaurantReservation;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author noellefajt
@@ -321,4 +323,17 @@ public class RestaurantUI extends javax.swing.JFrame {
     public javax.swing.JButton submitBtn;
     private javax.swing.JComboBox<String> timecmbo;
     // End of variables declaration//GEN-END:variables
+
+    public void reservationSuccess(String restaurant){
+        String dialogueString = "Reservation for " + restaurant +" places successfully" +"\n For: " + fNametxt.getText() + " " + lNametxt.getText() + "\n At: "+ getTime();
+        int input = JOptionPane.showConfirmDialog(null, dialogueString,"OK",JOptionPane.DEFAULT_OPTION);
+    }
+    // fNametxt = new javax.swing.JTextField();
+    // lNametxt = new javax.swing.JTextField();
+    // phonetxt = new javax.swing.JTextField();
+    // numPpltxt = new javax.swing.JTextField();
+    // rescmbo = new javax.swing.JComboBox<>();
+    // backbtn = new javax.swing.JButton();
+    // timecmbo = new javax.swing.JComboBox<>();
+
 }

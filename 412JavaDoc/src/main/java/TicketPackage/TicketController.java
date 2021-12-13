@@ -142,6 +142,7 @@ public class TicketController {
     private void addShowTicketsActionListener(){ 
         vw.getMf().getMjp().getSp().getShowTicketsButton().addActionListener(new ActionListener() { 
             public void actionPerformed(ActionEvent e) { 
+                
                 TicketViewer tv = new TicketViewer(md.getPurchasedTickets());
                 //tv.populatePurchasedTicketsArray(md.getPurchasedTickets());
                 tv.setVisible(true);

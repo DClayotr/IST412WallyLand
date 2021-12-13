@@ -64,29 +64,32 @@ public class restaurantResCntl implements ActionListener{
                 restaurantRes WalleyRes = new restaurantRes(restaurantUI.getFirstName(),restaurantUI.getLastName(),
                 restaurantUI.getPhone(), restaurantUI.getNumPeople(), restaurantUI.getRes(), restaurantUI.getTime());
                 WalleyLandOGList.addRes(WalleyRes);
-                System.out.println(restaurantUI.getFirstName());
-                WalleyLandOGList.printList();
+                restaurantUI.reservationSuccess("Walley Land OG");
+
             }
             else if (selectedRes.equals("Floor 2")){
                 Floor2List = new Floor2List();
                 restaurantRes Floor2ListRes = new restaurantRes(restaurantUI.getFirstName(),restaurantUI.getLastName(),
                 restaurantUI.getPhone(), restaurantUI.getNumPeople(), restaurantUI.getRes(), restaurantUI.getTime());
                 Floor2List.addRes(Floor2ListRes);
-                Floor2List.printList();
+                restaurantUI.reservationSuccess("Floor 2");
+
             }
              else if (selectedRes.equals("Park Lounge")){
                 ParkLoungeList = new ParkLoungeList();
                 restaurantRes ParkLoungeListRes = new restaurantRes(restaurantUI.getFirstName(),restaurantUI.getLastName(),
                 restaurantUI.getPhone(), restaurantUI.getNumPeople(), restaurantUI.getRes(), restaurantUI.getTime());
                 ParkLoungeList.addRes(ParkLoungeListRes);
-                ParkLoungeList.printList();
+                restaurantUI.reservationSuccess("Park Lounge");
+
             }
              else if (selectedRes.equals("WL Club")){
                 WLClubList = new WLClubList();
                 restaurantRes WLClubListRes = new restaurantRes(restaurantUI.getFirstName(),restaurantUI.getLastName(),
                 restaurantUI.getPhone(), restaurantUI.getNumPeople(), restaurantUI.getRes(), restaurantUI.getTime());
                 WLClubList.addRes(WLClubListRes);
-                WLClubList.printList(); 
+                restaurantUI.reservationSuccess("WL Club");
+
             }
             restaurantUI.clearData();
         }

@@ -9,11 +9,11 @@ package PlannerPackage;
  * Planner serves as the model in this app.
  * @author mattu
  */
-public class Planner {    
+public class Planner{    
     private String name;
-    private int time;
+    private String time;
     
-    public Planner(String name, int time){
+    public Planner(String name, String time){
         /**
          * Constructor for the daily planner
          * @param , name determines what the event is displayed as, time dictates the time of the event in the daily planner
@@ -26,7 +26,7 @@ public class Planner {
      * Getter for time variable
      * @return 
      */
-    public int getTime(){
+    public String getTime(){
         return time;
     }
     
@@ -34,7 +34,7 @@ public class Planner {
      * Setter for time variable
      * @param time 
      */
-    public void setTime(int time) {
+    public void setTime(String time) {
         this.time = time;
     }
     
@@ -56,7 +56,7 @@ public class Planner {
     
     @Override
     public String toString() {
-        return name + " at " + time +":00";
+        return name + " at " + time;
     }
 }
 

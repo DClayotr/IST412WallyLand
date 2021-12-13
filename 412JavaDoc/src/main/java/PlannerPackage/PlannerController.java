@@ -36,26 +36,21 @@ public class PlannerController {
         return eventList.getEvents().get(i).getName();
     }
     
-    int getTime(int i) {
+    String getTime(int i) {
         return eventList.getEvents().get(i).getTime();
     }
     
         
-//    void showTicketUI() {
-//        ticketUI.setVisible(true);
-//    }
-    
-//    void showFieldsInView(){
-//        view.setVisible(true);
-//    }
-        
     void addNewEventToEndOfList() {
-        eventList.getEvents().add(new Planner("Event", 8));
+        eventList.getEvents().add(new Planner("Event", "8:00 am"));
     }
     
     void delete(int index) {
         eventList.getEvents().remove(index);
     }
     
+    void sortEvents(){
+        eventList.sortEvents();
+    }
 
 }

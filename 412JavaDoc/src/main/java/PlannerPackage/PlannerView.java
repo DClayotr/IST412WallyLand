@@ -63,7 +63,7 @@ public class PlannerView extends JFrame {
         JPanel itemPanel = new JPanel(new GridLayout(5, 1));
         itemPanel.add(new JLabel("Event Name:"));
         itemPanel.add(eventNameTextField);
-        itemPanel.add(new JLabel("Time (enter as integer, ex: 8:00am -> 8:"));
+        itemPanel.add(new JLabel("Time (with formatting \"8:00 am\" or \"5:00 pm\")"));
         itemPanel.add(eventTimeTextField);
 
         JButton saveButton = new JButton("Save");
@@ -104,11 +104,11 @@ public class PlannerView extends JFrame {
         if (listSize > 0) {
             try {
                 cntl.getEvent(index).setName(eventNameInput);
-                cntl.getEvent(index).setTime(Integer.parseInt(eventTimeInput));
+                cntl.getEvent(index).setTime(eventTimeInput);
 
                 JOptionPane.showMessageDialog(new javax.swing.JFrame(),
                         "Saved \"" + eventNameInput
-                        + "\" at " + eventTimeInput + ":00.");
+                        + "\" at " + eventTimeInput + ".");
 
                 if (index == listSize - 1) {
                     int response = JOptionPane.showConfirmDialog(null, "Would you like to add another event?", "Continue",
@@ -133,25 +133,30 @@ public class PlannerView extends JFrame {
     //sort method
 
     private void viewList() {
+        cntl.sortEvents();
         int listSize = cntl.getListSize();
         String displayList = "";
         for (int i = 0; i < listSize; i++) {
             displayList += cntl.getEvent(i).toString() + "\n";
         }
-
+                
         JOptionPane.showMessageDialog(new javax.swing.JFrame(),
                 "Your planner for today: \n" + displayList);
     }
-
-    private void ticketView() {
-        this.setVisible(false);
-        //show ticket UI
-    }
     
-    private void resView() {
-        this.setVisible(false);
-        //show restaurant UI
-    }
+//    private List<Planner> sortByTime(){
+//        sortedList = new JList()
+//    }
+    
+//    private void ticketView() {
+//        this.setVisible(false);
+//        //show ticket UI
+//    }
+//    
+//    private void resView() {
+//        this.setVisible(false);
+//        //show restaurant UI
+//    }
 
     private void delete() {
         int listSize = cntl.getListSize();
@@ -178,7 +183,6 @@ public class PlannerView extends JFrame {
 
     private void displayNextItem() {
         int listSize = cntl.getListSize();
-        //switch (listSize) {
             if(listSize == 0){
                 JOptionPane.showMessageDialog(new javax.swing.JFrame(),
                         "List is currently empty; try adding an item by clicking the \"New\" button.");
@@ -227,8 +231,9 @@ public class PlannerView extends JFrame {
     }
     
     private void returnHome(){
-        hc.setHomeScreenVisible();
         this.setVisible(false);
+        homeController homeController = new homeController();
+        
     }
 
 }
